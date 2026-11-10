@@ -2,10 +2,14 @@ name: release
 
 # Daily release train at 09:00 America/Los_Angeles. A day where nothing landed
 # on main is a no-op: the release job sees HEAD already tagged and skips.
+# PAUSED 2026-11-10 (13e decision, journal 574): the scheduled train is paused
+# while the Hub Cactus-Compute/needle3 has no python/ wheels for gen 3 (3.3.3);
+# the release job fails its guard 3 days running (runs 2026-11-08/09/10, 17:04 UTC).
+# Re-enable by uncommenting the schedule block below. Review date: 2026-11-17.
 on:
-  schedule:
-    - cron: "0 16 * * *"
-    - cron: "0 17 * * *"
+  # schedule:
+  #   - cron: "0 16 * * *"
+  #   - cron: "0 17 * * *"
   workflow_dispatch: {}
 
 permissions:
